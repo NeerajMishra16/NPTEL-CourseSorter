@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Registry — NPTEL Course Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">§</span>
+      <div class="brand-text">
+        <h1>Course Registry</h1>
+        <p>A working index of NPTEL courses — filter, sort, and track deadlines</p>
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="stat">
+        <span class="stat-num" id="statTotal">0</span>
+        <span class="stat-label">courses indexed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="statShown">0</span>
+        <span class="stat-label">matching filters</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="filters" id="filters">
+    <div class="filters-head">
+      <h2>Filters</h2>
+      <button id="resetBtn" class="link-btn">Reset all</button>
+    </div>
+
+    <div class="field">
+      <label for="searchInput">Search course</label>
+      <input type="text" id="searchInput" placeholder="e.g. cryptography, machine learning…" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label for="professorInput">Professor</label>
+      <input type="text" id="professorInput" list="professorList" placeholder="Search by professor name" autocomplete="off">
+      <datalist id="professorList"></datalist>
+    </div>
+
+    <div class="field">
+      <label for="instituteSelect">Institute</label>
+      <select id="instituteSelect">
+        <option value="">All institutes</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="badgeSelect">Certification badge</label>
+      <select id="badgeSelect">
+        <option value="">All courses</option>
+        <br>
+        <option value="__has_badge__">AICTE Approved FDP Course</option>
+        <br>
+        <option value="__no_badge__">No badge</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <span class="group-label">Duration</span>
+      <div class="checkbox-group" id="durationGroup"></div>
+    </div>
+
+    <div class="field">
+      <label for="courseStartsSelect">Course starts</label>
+      <select id="courseStartsSelect">
+        <option value="">Any date</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="enrolmentEndsSelect">Enrolment ends</label>
+      <select id="enrolmentEndsSelect">
+        <option value="">Any date</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="examRegSelect">Exam registration ends</label>
+      <select id="examRegSelect">
+        <option value="">Any date</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="examDateSelect">Exam date</label>
+      <select id="examDateSelect">
+        <option value="">Any date</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <span class="group-label">Only show</span>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="openOnlyCheck">
+        Enrolment still open
+      </label>
+    </div>
+  </aside>
+
+  <main class="results">
+    <div class="results-toolbar">
+      <div class="result-count" id="resultCount">Showing all courses</div>
+      <div class="sort-control">
+        <label for="sortSelect">Sort by</label>
+        <select id="sortSelect">
+          <option value="name_asc">Course name (A–Z)</option>
+          <option value="enrolment_ends_soon">Enrolment ends (soonest first)</option>
+          <option value="course_starts_soon">Course starts (soonest first)</option>
+          <option value="exam_reg_soon">Exam registration ends (soonest first)</option>
+          <option value="exam_date_soon">Exam date (soonest first)</option>
+          <option value="duration_asc">Duration (shortest first)</option>
+          <option value="duration_desc">Duration (longest first)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="course-grid" id="courseGrid"></div>
+    <div class="empty-state" id="emptyState" hidden>
+      <p>No courses match these filters.</p>
+      <button id="emptyResetBtn" class="link-btn">Clear filters and start over</button>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>Data compiled from NPTEL course preview pages. Deadlines shown relative to today.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
