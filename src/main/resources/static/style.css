@@ -406,6 +406,35 @@ button, input, select {
 .status-soon .status-tag { background: var(--gold-soft); color: var(--gold); }
 .status-closed .status-tag { background: var(--brick-soft); color: var(--brick); }
 
+.register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.register-btn:hover {
+  background: var(--teal);
+}
+
+.register-btn-disabled {
+  background: var(--paper);
+  color: var(--ink-soft);
+  border: 1px dashed var(--line);
+  cursor: not-allowed;
+  font-weight: 500;
+}
+
 .empty-state {
   text-align: center;
   padding: 60px 20px;

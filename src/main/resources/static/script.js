@@ -249,6 +249,11 @@ function renderCard(c) {
       <div class="deadline-bar"><div class="deadline-fill" style="width:${pct}%"></div></div>
       <span class="status-tag">${statusText}</span>
     </div>
+    ${
+      c.register_url
+        ? `<a class="register-btn" href="${escapeHtml(c.register_url)}" target="_blank" rel="noopener noreferrer">Register now &rarr;</a>`
+        : `<span class="register-btn register-btn-disabled">Registration link unavailable</span>`
+    }
   `;
   return card;
 }
