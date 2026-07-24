@@ -438,3 +438,33 @@ button, input, select {
     max-height: none;
   }
 }
+
+.register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border: 2px solid #151515;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.register-btn:hover {
+  background: var(--teal);
+}
+
+.register-btn-disabled {
+  background: var(--paper);
+  color: var(--ink-soft);
+  border: 2px dashed #000000;
+  cursor: not-allowed;
+  font-weight: 500;
+}
